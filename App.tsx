@@ -7,6 +7,8 @@ import {
   Col,
   Badge,
   Alert,
+  Placeholder,
+  Card,
 } from 'react-bootstrap';
 import './style.css';
 
@@ -51,10 +53,11 @@ export default function App() {
   return (
     <div>
       <Container>
-        <Row className="text-center">
+        <Row className="text-center mt-2">
           <Col>
-            <Alert bg="primary">
-              <h1 className="alert">Biblioteca Nacional Mariano Moreno</h1>
+            <Alert className="p0" key="primary" variant="primary">
+              <Alert.Heading>Biblioteca Nacional Mariano Moreno</Alert.Heading>
+              <Alert.Link>Ingresar al sistema</Alert.Link>
             </Alert>
           </Col>
         </Row>
