@@ -1,6 +1,16 @@
 import * as React from 'react';
-import { Button, Form, Container, Row, Col, Badge } from 'react-bootstrap';
+import {
+  Button,
+  Form,
+  Container,
+  Row,
+  Col,
+  Badge,
+  Alert,
+} from 'react-bootstrap';
 import './style.css';
+
+import Child from './components/Child';
 
 export default function App() {
   const numBtn = React.useRef<any>(null);
@@ -43,7 +53,9 @@ export default function App() {
       <Container>
         <Row className="text-center">
           <Col>
-            <h1 className="alert">Biblioteca Nacional Mariano Moreno</h1>
+            <Alert bg="primary">
+              <h1 className="alert">Biblioteca Nacional Mariano Moreno</h1>
+            </Alert>
           </Col>
         </Row>
         <Row className="align-items-center">
@@ -80,20 +92,25 @@ export default function App() {
                   placeholder="Ingresa un número"
                   value={valInp}
                   onChange={(e) => setValInp(e.target.value)}
+                  className="rounded-0"
                 />
                 {cred ? (
-                  <Badge className="mt-2" bg="danger">
+                  <Badge className="mt-2 rounded-0 p-1" bg="danger">
                     Ya hay una credencial ingresada!{' '}
                     <small>({localStorage.getItem('item')})</small>
                   </Badge>
                 ) : (
-                  <Badge className="mt-2" bg="success">
+                  <Badge className="mt-2 rounded-0 p-1" bg="success">
                     Puede ingresar su credencial
                   </Badge>
                 )}
-                {/*cred ? 'true' : 'false'*/}
               </Form.Group>
             </Form>
+          </Col>
+        </Row>
+        <Row className="text-center">
+          <Col>
+            <Child />
           </Col>
         </Row>
       </Container>
